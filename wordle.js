@@ -30,7 +30,6 @@ function init_ansewers () {
 			}
 		} while (answers[i] === '');
 	}
-	console.log(answers);
 }
 
 function init_states () {
