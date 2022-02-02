@@ -174,6 +174,13 @@ function set_color (hint) {
 	}
 }
 
+function twitText () {
+	s = 'Toki Pona Wordle RTA: ' + get_time() + ' (' + answers.join() + ')';
+	url = "https://nymwa.github.io/tokipona-wordle/";
+	url = "http://twitter.com/share?url=" + escape(url) + "&text=" + s;
+	window.open(url,"_blank","width=600,height=300");
+}
+
 function proc_correct () {
 	if (index === 9) {
 		proc = false;
@@ -223,6 +230,13 @@ function keyevent (event) {
 redraw();
 document.addEventListener('keydown', event => {keyevent(event);});
 
+function get_time () {
+	csec_filled = ('00' + csec).slice(-2);
+	sec_filled = ('00' + sec).slice(-2);
+	min_filled = ('00' + min).slice(-2);
+	return min_filled + ':' + sec_filled + ':' + csec_filled;
+}
+
 function stopwatch () {
 	let elm = document.getElementById('watch');
 	if (proc) {
@@ -232,10 +246,7 @@ function stopwatch () {
 		sec = diff.getSeconds();
 		min = diff.getMinutes();
 	}
-	csec_filled = ('00' + csec).slice(-2);
-	sec_filled = ('00' + sec).slice(-2);
-	min_filled = ('00' + min).slice(-2);
-	elm.textContent = min_filled + ':' + sec_filled + ':' + csec_filled;
+	elm.textContent = get_time();
 	setTimeout("stopwatch()", 10);
 }
 

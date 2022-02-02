@@ -14,6 +14,10 @@ table {
 	text-align: center;
 }
 
+.sub {
+	text-align: center;
+}
+
 .block {
 	background-color: lightgray;
 	font-size: 30px;
